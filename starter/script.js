@@ -4,7 +4,9 @@
 
 // First way of importing elements of code
 // We have to import exact name of the thing from the exporting module in curly braces
-import { addToBasket } from './shopingCart.js';
+import { addToBasket, basket, shippingCost } from './shopingCart.js';
 addToBasket('pizza', 4);
 
 console.log('Importing module');
+
+console.log(basket, shippingCost);
