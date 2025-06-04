@@ -12,4 +12,5 @@ export const addToBasket = function (food, quantity) {
 console.log('Exporting module');
 
 // We can max export things by using curly braces with that items
-export { basket, shippingCost };
+// We can even change the name in exporting part
+export { basket, shippingCost as cost };
