@@ -11,3 +11,12 @@ addToBasket('pizza', 4);
 console.log('Importing module');
 
 console.log(bs, cost);
+
+// The other is to import everything with the use of *
+import * as ShoppingCart from './shopingCart.js';
+console.log(ShoppingCart.basket);
+
+// importing default module
+// Important thing its never good to mix name export with default export
+import add from './shopingCart.js';
+add('kabanos', 2);
