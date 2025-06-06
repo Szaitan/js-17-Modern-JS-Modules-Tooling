@@ -2,7 +2,7 @@
 // One of the ebst ways of module pattern is to implement effi function which has safe data and can easly return values which works fine for API function
 // Its working fine thanks to clouser
 
-(function () {
+const ShoppingCart2 = (function () {
   const cart = [];
   const totalPrice = 234;
   const shippingCost = 10;
@@ -20,4 +20,8 @@
   // Here we return the object which will make public some aspect of code
 
   return { cart, totalPrice, addToCart, totalQuantity };
-});
+})();
+
+console.log(ShoppingCart2.cart);
+ShoppingCart2.addToCart('pizza', 2);
+ShoppingCart2.addToCart('bannana', 4);
