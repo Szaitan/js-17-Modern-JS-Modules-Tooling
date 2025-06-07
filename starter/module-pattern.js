@@ -25,3 +25,4 @@ const ShoppingCart2 = (function () {
 console.log(ShoppingCart2.cart);
 ShoppingCart2.addToCart('pizza', 2);
 ShoppingCart2.addToCart('bannana', 4);
+TEST;
