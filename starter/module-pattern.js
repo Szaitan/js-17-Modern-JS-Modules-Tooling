@@ -1,6 +1,7 @@
 // Module pattern
 // One of the ebst ways of module pattern is to implement effi function which has safe data and can easly return values which works fine for API function
 // Its working fine thanks to clouser
+// Additional intro to command line which we know
 
 const ShoppingCart2 = (function () {
   const cart = [];
