@@ -8,14 +8,16 @@
 
 // Step 3 - Optional but very important library
 // There is very important library which containes many usefull methods: Lodash https://lodash.com/
-// For now where we dont use package we will install version for ES
+// For now where we dont use bundler we will install version for ES
 // npm -i or install (from install) lodash-es
 
-import cloneDeep from './node_modules/lodash-es/cloneDeep';
+// Next we import the method which we are interested in
 
-obj = { food: [{ pizza: 2 }, { bread: 4 }], status: 'working' };
+import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
 
-objNew = cloneDeep(obj);
+const obj = { food: [{ pizza: 2 }, { bread: 4 }], status: 'working' };
+
+const objNew = cloneDeep(obj);
 
 console.log(obj);
 console.log(objNew);
