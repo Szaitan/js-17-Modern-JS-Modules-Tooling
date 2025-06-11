@@ -9,4 +9,13 @@
 // Step 3 - Optional but very important library
 // There is very important library which containes many usefull methods: Lodash https://lodash.com/
 // For now where we dont use package we will install version for ES
-// npm -i (from install) lodash-es
+// npm -i or install (from install) lodash-es
+
+import cloneDeep from './node_modules/lodash-es/cloneDeep';
+
+obj = { food: [{ pizza: 2 }, { bread: 4 }], status: 'working' };
+
+objNew = cloneDeep(obj);
+
+console.log(obj);
+console.log(objNew);
