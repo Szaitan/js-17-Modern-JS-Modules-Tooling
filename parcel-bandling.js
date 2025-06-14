@@ -34,7 +34,27 @@ console.log(objNew);
 // It will remove reload and this code is only visible for parcel
 // See bottom of code base
 
-// Second way to
+// Second way to launch parcel is to use npm scripts in folder package json
+
+/*
+Example:
+  "scripts": {
+    "start": "parcel index.html"
+  },
+*/
+
+// Now we can simple use coman: npm run start which will run parcell index.html
+
+// And now when we are done building our proejct we have to prepare the finale bundle of proejt with new command/script
+// build
+
+/*
+Example:
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+*/
 
 // This code have to be at the end of page
 if (module.hot) {
