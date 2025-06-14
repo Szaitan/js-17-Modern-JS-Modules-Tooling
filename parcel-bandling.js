@@ -8,6 +8,8 @@ Co robi?
     Obsługuje hot-reload (czyli automatyczne odświeżanie strony przy zmianie kodu). 
     Działa z minimalną konfiguracją (w przeciwieństwie do np. Webpacka).
 */
+
+// Thanks to parcel we dont have to pass full path to the code we are interested in just point the name of if
 import { cloneDeep } from 'lodash-es';
 
 const obj = { food: [{ pizza: 2 }, { bread: 4 }], status: 'working' };
@@ -46,7 +48,7 @@ Example:
 // Now we can simple use coman: npm run start which will run parcell index.html
 
 // And now when we are done building our proejct we have to prepare the finale bundle of proejt with new command/script
-// build
+//  "build": "parcel build index.html" it condense our code for better performance
 
 /*
 Example:
