@@ -8,11 +8,12 @@ Co robi?
     Obsługuje hot-reload (czyli automatyczne odświeżanie strony przy zmianie kodu). 
     Działa z minimalną konfiguracją (w przeciwieństwie do np. Webpacka).
 */
-import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+import { cloneDeep } from 'lodash-es';
 
 const obj = { food: [{ pizza: 2 }, { bread: 4 }], status: 'working' };
 
 const objNew = cloneDeep(obj);
+objNew.food[0].pizza = 'kaput';
 
 console.log(obj);
 console.log(objNew);
@@ -28,3 +29,14 @@ console.log(objNew);
 
 // What it does?
 // It created dist folder (distribution) which will be a folder which we will send for production, final use.
+
+// To remove page reload from our webside we can add option module.hot
+// It will remove reload and this code is only visible for parcel
+// See bottom of code base
+
+// Second way to
+
+// This code have to be at the end of page
+if (module.hot) {
+  module.hot.accept();
+}
