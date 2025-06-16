@@ -16,7 +16,7 @@ const obj = { food: [{ pizza: 2 }, { bread: 4 }], status: 'working' };
 
 const objNew = cloneDeep(obj);
 objNew.food[0].pizza = 'kaput';
-
+console.log('test');
 console.log(obj);
 console.log(objNew);
 
@@ -58,7 +58,19 @@ Example:
   },
 */
 
-// This code have to be at the end of page
 if (module.hot) {
   module.hot.accept();
 }
+
+/* Lets not test Babylon library which is used to help prepare oyur package for older browser by changing new code into old one
+ */
+
+class Person {
+  greeting = 'Hey';
+  constructor(name) {
+    this.name = name;
+    console.log(`${this.greeting}, ${this.name}`);
+  }
+}
+
+const mike = new Person('Mike');

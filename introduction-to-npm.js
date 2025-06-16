@@ -21,4 +21,3 @@ const objNew = cloneDeep(obj);
 
 console.log(obj);
 console.log(objNew);
-//test
