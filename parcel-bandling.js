@@ -16,7 +16,7 @@ const obj = { food: [{ pizza: 2 }, { bread: 4 }], status: 'working' };
 
 const objNew = cloneDeep(obj);
 objNew.food[0].pizza = 'kaput';
-console.log('test');
+
 console.log(obj);
 console.log(objNew);
 
@@ -63,6 +63,8 @@ if (module.hot) {
 }
 
 /* Lets not test Babylon library which is used to help prepare oyur package for older browser by changing new code into old one
+Parcel is installing Babel as it is  with new verision and doesnt requier additional implementation of code to prepare package for older computer/browsers.
+To see it we have to build a final package, cus in dev package it will not implement changes to code for older versions.
  */
 
 class Person {
