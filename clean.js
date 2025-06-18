@@ -15,53 +15,53 @@ const limits = {
 };
 
 const add = function (value, description, user = '') {
-  if (user === '') return;
-
-  let lim;
-  if (limits[user]) {
-    lim = limits[user];
-  } else {
-    lim = 0;
+  if (!user) return;
+  const lowerCaseUser = user.toLowerCase();
+  if (!limits[lowerCaseUser]) {
+    return;
+  }
+  if (limits[lowerCaseUser] < value) {
+    console.log(`The cost: ${value}$ of ${description} is over the limits!`);
+    return;
   }
 
-  if (value <= lim) {
-    budget.push({
-      value: -value,
-      description: description,
-      user: user.toLocaleUpperCase(),
-    });
-  }
+  budget.push({
+    value: -value,
+    description: description,
+    user: user.toLowerCase(),
+  });
 };
+
 add(10, 'Pizza 🍕');
-add(100, 'Going to movies 🍿', 'Matilda');
-add(200, 'Stuff', 'Jay');
+add(300, 'Going to movies 🍿', 'Matilda');
+add(200, 'Stuff', 'jonas');
 console.log(budget);
 
-const check = function () {
-  for (var el of budget) {
-    var lim;
-    if (limits[el.user]) {
-      lim = limits[el.user];
-    } else {
-      lim = 0;
-    }
+// const check = function () {
+//   for (var el of budget) {
+//     var lim;
+//     if (limits[el.user]) {
+//       lim = limits[el.user];
+//     } else {
+//       lim = 0;
+//     }
 
-    if (el.value < -lim) {
-      el.flag = 'limit';
-    }
-  }
-};
-check();
+//     if (el.value < -lim) {
+//       el.flag = 'limit';
+//     }
+//   }
+// };
+// check();
 
-console.log(budget);
+// console.log(budget);
 
-const bigExpenses = function (limit) {
-  var output = '';
-  for (var el of budget) {
-    if (el.value <= -limit) {
-      output += el.description.slice(-2) + ' / '; // Emojis are 2 chars
-    }
-  }
-  output = output.slice(0, -2); // Remove last '/ '
-  console.log(output);
-};
+// const bigExpenses = function (limit) {
+//   var output = '';
+//   for (var el of budget) {
+//     if (el.value <= -limit) {
+//       output += el.description.slice(-2) + ' / '; // Emojis are 2 chars
+//     }
+//   }
+//   output = output.slice(0, -2); // Remove last '/ '
+//   console.log(output);
+// };
