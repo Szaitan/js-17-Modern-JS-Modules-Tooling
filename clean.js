@@ -14,9 +14,8 @@ const limits = {
   matilda: 100,
 };
 
-const add = function (value, description, user) {
-  if (!user) user = 'jonas';
-  user = user.toLowerCase();
+const add = function (value, description, user = '') {
+  if (user === '') return;
 
   let lim;
   if (limits[user]) {
@@ -26,7 +25,11 @@ const add = function (value, description, user) {
   }
 
   if (value <= lim) {
-    budget.push({ value: -value, description: description, user: user });
+    budget.push({
+      value: -value,
+      description: description,
+      user: user.toLocaleUpperCase(),
+    });
   }
 };
 add(10, 'Pizza 🍕');
