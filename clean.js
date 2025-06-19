@@ -9,22 +9,12 @@ const budget = [
   { value: -1800, description: 'New Laptop 💻', user: 'jonas' },
 ];
 
-const limits = {
+const spendingLimits = {
   jonas: 1500,
   matilda: 100,
 };
 
-const add = function (value, description, user = '') {
-  if (!user) return;
-  const lowerCaseUser = user.toLowerCase();
-  if (!limits[lowerCaseUser]) {
-    return;
-  }
-  if (limits[lowerCaseUser] < value) {
-    console.log(`The cost: ${value}$ of ${description} is over the limits!`);
-    return;
-  }
-
+const addExpense = function (value, description, user = 'jonas') {
   budget.push({
     value: -value,
     description: description,
@@ -32,28 +22,18 @@ const add = function (value, description, user = '') {
   });
 };
 
-add(10, 'Pizza 🍕');
-add(300, 'Going to movies 🍿', 'Matilda');
-add(200, 'Stuff', 'jonas');
+addExpense(10, 'Pizza 🍕');
+addExpense(300, 'Going to movies 🍿', 'Matilda');
+addExpense(200, 'Stuff');
 console.log(budget);
 
-// const check = function () {
-//   for (var el of budget) {
-//     var lim;
-//     if (limits[el.user]) {
-//       lim = limits[el.user];
-//     } else {
-//       lim = 0;
-//     }
-
-//     if (el.value < -lim) {
-//       el.flag = 'limit';
-//     }
-//   }
-// };
-// check();
-
-// console.log(budget);
+const checkLimit = function () {
+  for (const el of budget) {
+    if (spendingLimits[el.user] + el.value < 0) el.flag = 'limit';
+  }
+};
+checkLimit();
+console.log(budget);
 
 // const bigExpenses = function (limit) {
 //   var output = '';
